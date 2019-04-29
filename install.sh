@@ -82,11 +82,9 @@ export PATH=$PATH:/opt/bin:/opt/sbin || exit 7
 
 [ -f ./hdd_spin_down.startup ] && rm ./hdd_spin_down.startup
 
-cd /jffss/etc/config
+cd /jffs/etc/config
 echo -e "#!/bin/sh\nmount -o bind /jffs/opt /opt" > automatic_opt_mount.startup || exit 11
 chmod 700 automatic_opt_mount.startup || exit 12
-
-echo $1
 
 case $1 in
    "-s") exit 0 ;;
