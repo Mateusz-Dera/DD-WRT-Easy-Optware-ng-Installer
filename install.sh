@@ -48,7 +48,6 @@ mount -o bind /jffs/opt /opt || exit 5
 if ! [ -x "$(command -v /opt/bin/ipkg update)" ]; then
    echo -e "\e[92;1;48;5;239m ================================ \e[0m"
    echo -e "\e[92;1;48;5;240m |  SELECT ROUTER ARCHITECTURE  | \e[0m"
-   echo -e "\e[92;1;48;5;241m |  \e[94;1;48;5;241mSelect autostart_architecture \e[92;1;48;5;241m        | \e[0m"
    echo -e "\e[92;1;48;5;242m | \e[94;1;48;5;242m 0\e[92;1;48;5;242m ARMv7 EABI hardfloat      | \e[0m"
    echo -e "\e[92;1;48;5;243m | \e[94;1;48;5;243m 1\e[92;1;48;5;243m ARMv7 EABI softfloat      | \e[0m"
    echo -e "\e[92;1;48;5;244m | \e[94;1;48;5;244m 2\e[92;1;48;5;244m ARMv5 EABI                | \e[0m"
