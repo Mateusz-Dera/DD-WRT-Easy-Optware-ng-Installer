@@ -23,7 +23,7 @@
 
 echo -e "\e[92;1;48;5;239m ====================================== \e[0m"
 echo -e "\e[92;1;48;5;240m |  DD-WRT EASY OPTWARE-NG INSTALLER  | \e[0m"
-echo -e "\e[92;1;48;5;241m |  \e[94;1;48;5;241mMateusz Dera  \e[92;1;48;5;241m            | \e[0m"
+echo -e "\e[92;1;48;5;241m |  \e[94;1;48;5;241mMateusz Dera  \e[92;1;48;5;241m                 | \e[0m"
 echo -e "\e[92;1;48;5;240m | \e[94;1;48;5;240m Version:\e[92;1;48;5;240m 1.0      | \e[0m"
 echo -e "\e[92;1;48;5;239m ======================================\e[0m"
 
@@ -85,9 +85,9 @@ export PATH=$PATH:/opt/bin:/opt/sbin || exit 7
 echo -e "#!/bin/sh\nmount -o bind /jffs/opt /opt" > automatic_opt_mount.startup || exit 11
 chmod 700 automatic_opt_mount.startup || exit 12
 
-echo $0
+echo $1
 
-case $0 in
+case $1 in
    "-s") exit 0 ;;
    *) while true; do
        read -p $'Do you want to reboot your device? (y/n): ' yn
