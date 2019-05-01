@@ -32,7 +32,7 @@ echo
 cd /jffs || exit 1
 
 if ! [ -d "/jffs/opt" ]; then
-   mkdir /jffs/opt || exit 2
+   mkdir /jffs/opt && sleep 5 || exit 2
 fi
 
 if ! [ -d "/jffs/etc" ]; then
@@ -79,9 +79,9 @@ fi
 export PATH=$PATH:/opt/bin:/opt/sbin || exit 7
 /opt/bin/ipkg update || exit 8
 
-[ -f ./hdd_spin_down.startup ] && rm ./hdd_spin_down.startup
+[ -f ./hdd_spin_down.startup ] && rm ./hdd_spin_down.startup || exit 9
 
-cd /jffs/etc/config
+cd /jffs/etc/config || exit 10
 echo -e "#!/bin/sh\nmount -o bind /jffs/opt /opt" > automatic_opt_mount.startup || exit 11
 chmod 700 automatic_opt_mount.startup || exit 12
 
