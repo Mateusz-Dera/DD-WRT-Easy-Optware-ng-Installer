@@ -79,13 +79,14 @@ fi
 export PATH=$PATH:/opt/bin:/opt/sbin || exit 1
 /opt/bin/ipkg update || exit 1
 
-[ -f ./hdd_spin_down.startup ] && rm ./hdd_spin_down.startup || exit 1
+[ -f ./automatic_opt_mount.startup ] && rm automatic_opt_mount.startup
+[ -f ./automatic_opt_mount.startup ] && exit 1
 
 cd /jffs/etc/config || exit 1
 echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startup || exit 1
 chmod 700 automatic_opt_mount.startup || exit 1
 
-echo "\nInstallation complete!\n"
+echo -e "\nInstallation complete!\n"
 
 case $1 in
    "-s") exit 0;;
