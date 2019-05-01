@@ -83,6 +83,7 @@ cd /jffs/etc/config || exit 1
 [ -f ./automatic_opt_mount.startup ] && rm automatic_opt_mount.startup
 [ -f ./automatic_opt_mount.startup ] && exit 1
 echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startup || exit 1
+[ -f ./automatic_opt_mount.startup ] || exit 1
 chmod 700 automatic_opt_mount.startup || exit 1
 
 echo -e "\nInstallation complete!\n"
