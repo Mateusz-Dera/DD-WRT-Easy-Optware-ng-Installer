@@ -32,18 +32,18 @@ echo
 cd /jffs || exit 1
 
 if ! [ -d "/jffs/opt" ]; then
-   mkdir /jffs/opt || exit 2
+   mkdir /jffs/opt || exit 1
 fi
 
 if ! [ -d "/jffs/etc" ]; then
-   mkdir /jffs/etc || exit 3
+   mkdir /jffs/etc || exit 1
 fi
 
 if ! [ -d "/jffs/etc/config" ]; then
-   mkdir /jffs/etc/config || exit 4
+   mkdir /jffs/etc/config || exit 1
 fi
 
-mount -o bind /jffs/opt/ /opt/ || exit 5
+mount -o bind /jffs/opt/ /opt/ || exit 1
 
 if ! [ -x "$(command -v /opt/bin/ipkg update)" ]; then
    echo -e "\e[92;1;48;5;239m ================================ \e[0m"
@@ -72,26 +72,26 @@ if ! [ -x "$(command -v /opt/bin/ipkg update)" ]; then
    *) link="http://ipkg.nslu2-linux.org/optware-ng/bootstrap/buildroot-armeabihf-bootstrap.sh"
    esac
   
-   wget -O - $link | sh || exit 6
+   wget -O - $link | sh || exit 1
 
 fi
 
-export PATH=$PATH:/opt/bin:/opt/sbin || exit 7
-/opt/bin/ipkg update || exit 8
+export PATH=$PATH:/opt/bin:/opt/sbin || exit 1
+/opt/bin/ipkg update || exit 1
 
-[ -f ./hdd_spin_down.startup ] && rm ./hdd_spin_down.startup || exit 9
+[ -f ./hdd_spin_down.startup ] && rm ./hdd_spin_down.startup || exit 1
 
-cd /jffs/etc/config || exit 10
-echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startup || exit 11
-chmod 700 automatic_opt_mount.startup || exit 12
+cd /jffs/etc/config || exit 1
+echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startup || exit 1
+chmod 700 automatic_opt_mount.startup || exit 1
 
 case $1 in
-   "-s") exit;;
+   "-s") exit 0;;
    *) while true; do
        read -p $'Do you want to reboot your device? (y/n): ' yn
        case $yn in
            [Yy]* ) reboot;;
-           [Nn]* ) exit;;
+           [Nn]* ) exit 0;;
            * ) echo -e "Please answer \e[31myes \e[0mor \e[31mno\e[0m.";;
        esac
    done
