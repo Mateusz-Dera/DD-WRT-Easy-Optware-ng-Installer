@@ -85,6 +85,8 @@ cd /jffs/etc/config || exit 1
 echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startup || exit 1
 chmod 700 automatic_opt_mount.startup || exit 1
 
+echo "\nInstallation complete!\n"
+
 case $1 in
    "-s") exit 0;;
    *) while true; do
