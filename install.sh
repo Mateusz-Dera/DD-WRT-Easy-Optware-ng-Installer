@@ -32,7 +32,7 @@ echo
 cd /jffs || exit 1
 
 if ! [ -d "/jffs/opt" ]; then
-   mkdir /jffs/opt && sleep 5 || exit 2
+   mkdir /jffs/opt || exit 2
 fi
 
 if ! [ -d "/jffs/etc" ]; then
