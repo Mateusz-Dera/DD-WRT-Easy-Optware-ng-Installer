@@ -43,7 +43,7 @@ if ! [ -d "/jffs/etc/config" ]; then
    mkdir /jffs/etc/config || exit 4
 fi
 
-mount -o bind /jffs/opt /opt || exit 5
+mount -o bind /jffs/opt/ /opt/ || exit 5
 
 if ! [ -x "$(command -v /opt/bin/ipkg update)" ]; then
    echo -e "\e[92;1;48;5;239m ================================ \e[0m"
@@ -82,7 +82,7 @@ export PATH=$PATH:/opt/bin:/opt/sbin || exit 7
 [ -f ./hdd_spin_down.startup ] && rm ./hdd_spin_down.startup || exit 9
 
 cd /jffs/etc/config || exit 10
-echo -e "#!/bin/sh\nmount -o bind /jffs/opt /opt" > automatic_opt_mount.startup || exit 11
+echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startup || exit 11
 chmod 700 automatic_opt_mount.startup || exit 12
 
 case $1 in
