@@ -86,12 +86,12 @@ echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startu
 chmod 700 automatic_opt_mount.startup || exit 12
 
 case $1 in
-   "-s") exit 0 ;;
+   "-s") exit;;
    *) while true; do
        read -p $'Do you want to reboot your device? (y/n): ' yn
        case $yn in
            [Yy]* ) reboot;;
-           [Nn]* ) exit 0;;
+           [Nn]* ) exit;;
            * ) echo -e "Please answer \e[31myes \e[0mor \e[31mno\e[0m.";;
        esac
    done
