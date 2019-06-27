@@ -82,7 +82,7 @@ export PATH=$PATH:/opt/bin:/opt/sbin || exit 1
 cd /jffs/etc/config || exit 1
 [ -f ./automatic_opt_mount.startup ] && rm automatic_opt_mount.startup
 [ -f ./automatic_opt_mount.startup ] && exit 1
-echo -e "#!/bin/sh\nmount -o bind /jffs/opt/ /opt/" > automatic_opt_mount.startup || exit 1
+echo -e '#!/bin/sh\n/usr/bin/logger -t START_$(basename $0) "started [$@]"\nSCRLOG=/tmp/$(basename $0).log\ntouch $SCRLOG\nTIME=$(date +"%Y-%m-%d %H:%M:%S")\necho $TIME "$(basename $0) script started [$@]" >> $SCRLOG\nmount -o bind /jffs/opt/ /opt/ \nTIME=$(date +"%Y-%m-%d %H:%M:%S")\nif [ "$?" -ne 0 ]\nthen\necho $TIME "Error in script execution! Script: $0" >> $SCRLOG\nelse\necho $TIME "Script execution OK. Script: $0" >> $SCRLOG\nfi\n/usr/bin/logger -t STOP_$(basename $0) "return code $?"\nexit $?' > automatic_opt_mount.startup || exit 1
 [ -f ./automatic_opt_mount.startup ] || exit 1
 chmod 700 automatic_opt_mount.startup || exit 1
 
