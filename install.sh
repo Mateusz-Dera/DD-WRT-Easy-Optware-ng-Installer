@@ -24,7 +24,7 @@
 echo -e "\e[92;1;48;5;239m ====================================== \e[0m"
 echo -e "\e[92;1;48;5;240m |  DD-WRT EASY OPTWARE-NG INSTALLER  | \e[0m"
 echo -e "\e[92;1;48;5;241m |  \e[94;1;48;5;241mMateusz Dera  \e[92;1;48;5;241m                    | \e[0m"
-echo -e "\e[92;1;48;5;240m | \e[94;1;48;5;240m Version:\e[92;1;48;5;240m 1.2                      | \e[0m"
+echo -e "\e[92;1;48;5;240m | \e[94;1;48;5;240m Version:\e[92;1;48;5;240m 1.3                      | \e[0m"
 echo -e "\e[92;1;48;5;239m ====================================== \e[0m"
 
 echo
@@ -78,6 +78,8 @@ fi
 
 export PATH=$PATH:/opt/bin:/opt/sbin || exit 1
 /opt/bin/ipkg update || exit 1
+
+/opt/bin/ipkg install coreutils || exit 1 
 
 cd /jffs/etc/config || exit 1
 [ -f ./automatic_opt_mount.startup ] && rm automatic_opt_mount.startup
