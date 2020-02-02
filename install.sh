@@ -24,7 +24,7 @@
 echo -e "\e[92;1;48;5;239m ====================================== \e[0m"
 echo -e "\e[92;1;48;5;240m |  DD-WRT EASY OPTWARE-NG INSTALLER  | \e[0m"
 echo -e "\e[92;1;48;5;241m |  \e[94;1;48;5;241mMateusz Dera  \e[92;1;48;5;241m                    | \e[0m"
-echo -e "\e[92;1;48;5;240m | \e[94;1;48;5;240m Version:\e[92;1;48;5;240m 1.1                      | \e[0m"
+echo -e "\e[92;1;48;5;240m | \e[94;1;48;5;240m Version:\e[92;1;48;5;240m 1.2                      | \e[0m"
 echo -e "\e[92;1;48;5;239m ====================================== \e[0m"
 
 echo
@@ -43,7 +43,11 @@ if ! [ -d "/jffs/etc/config" ]; then
    mkdir /jffs/etc/config || exit 1
 fi
 
-mount -o bind /jffs/opt/ /opt/ || exit 1
+if grep /opt /proc/mounts > /dev/null 2>&1; then
+        echo "opt is mounted"
+else
+        mount -o bind /jffs/opt/ /opt/ || exit 1
+fi
 
 if ! [ -x "$(command -v /opt/bin/ipkg update)" ]; then
    echo -e "\e[92;1;48;5;239m ================================ \e[0m"
