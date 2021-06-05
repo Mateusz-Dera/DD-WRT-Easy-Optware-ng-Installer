@@ -7,7 +7,6 @@
 
 ### USB Requirements:
  - Mounted JFFS partition
- - Optional SWAP partition
 
 ### Installation:
 ```sh
