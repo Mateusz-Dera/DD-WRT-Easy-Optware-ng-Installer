@@ -21,13 +21,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-cd /jffs
-
-if ! [ -d "/jffs/opt" ]; then
-   mkdir /jffs/opt
-fi
-
-mount -o bind /jffs/opt /opt
+cd /opt
 
 echo -e "\033[0;32mDD-WRT Easy Optware-ng Installer"
 echo -e "Copyright © 2019-2021 Mateusz Dera"
@@ -64,8 +58,4 @@ if ! [ -x "$(command -v /opt/bin/ipkg update)" ]; then
    wget -O - $link | sh || exit 1
 fi
 
-export PATH=$PATH:/opt/bin:/opt/sbin
 /opt/bin/ipkg update
-
-nvram set rc_startup="mount -o bind /jffs/opt /opt"
-nvram commit

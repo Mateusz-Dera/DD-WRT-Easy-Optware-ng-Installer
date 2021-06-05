@@ -1,12 +1,12 @@
 ## DD-WRT Easy Optware-ng Installer
 
 ### Info:
-  - This script install Optware-ng create and mount **/opt** parttion in **/jffs/opt** 
-  - NVRAM script mount **/opt** on start
+  - This script install Optware-ng
   - Tested on Netgear R6400v2 (DD-WRT v3.0-r46772 std)
 
 ### USB Requirements:
- - Mounted JFFS partition (**sda1**)
+ - USB with **ext4** partition named **Optware**
+ - Mounted **/opt** partition (**sda1**)
  ![USB](https://github.com/Mateusz-Dera/DD-WRT-Easy-Optware-ng-Installer/blob/master/usb.png?raw=true)
 
 ### Installation:
