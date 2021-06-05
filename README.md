@@ -7,6 +7,7 @@
 
 ### USB Requirements:
  - Mounted JFFS partition
+ ![USB](https://github.com/Mateusz-Dera/DD-WRT-Easy-Optware-ng-Installer/blob/master/usb.png?raw=true)
 
 ### Installation:
 ```sh
