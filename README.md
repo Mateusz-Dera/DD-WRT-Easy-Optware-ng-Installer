@@ -11,7 +11,7 @@
 # Installation
 ```sh
 cd /jffs
-curl -kLO https://raw.githubusercontent.com/Mateusz-Dera/DD-WRT-Easy-Optware-ng-Installer/master/install.sh
+curl -kLO https://raw.githubusercontent.com/Mateusz-Dera/DD-WRT-Easy-Optware-ng-Installer/DD-WRT-v3.0-r37305/install.sh
 sh ./install.sh
 reboot
 ```
