@@ -9,6 +9,9 @@
  - Optional SWAP partition
 
 # Installation
- - Run: cd /jffs    
- - Run: curl -kLO https://raw.githubusercontent.com/Mateusz-Dera/DD-WRT-Easy-Optware-ng-Installer/master/install.sh && sh ./install.sh
- - Restart router
+```sh
+cd /jffs
+curl -kLO https://raw.githubusercontent.com/Mateusz-Dera/DD-WRT-Easy-Optware-ng-Installer/master/install.sh
+sh ./install.sh
+reboot
+```
