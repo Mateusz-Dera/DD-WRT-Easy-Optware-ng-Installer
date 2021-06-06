@@ -11,7 +11,7 @@
 
 ### Installation:
 ```sh
-cd /jffs
+cd /opt
 curl -kLO https://raw.githubusercontent.com/Mateusz-Dera/DD-WRT-Easy-Optware-ng-Installer/master/install.sh
 sh ./install.sh
 reboot
